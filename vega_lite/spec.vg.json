@@ -1,22 +1,23 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 300,
+    "width": 1000,
+    "height": 1000,
     "data": {
-      "url": "LGA_2020_AUST.json",
+      "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
       "format": {
         "type": "topojson",
-        "feature": "LGA_CODE20"
+        "feature": "LGA_2020_AUST"
       }
     },
     "projection": {
-      "type": "albersUsa"
+      "type": "identity",
+      "reflectY": true
     },
     "mark": "geoshape",
     "encoding": {
       "color": {
-        "field": "rate",
-        "type": "quantitative"
+        "field": "properties.LGA_CODE20",
+        "type": "nominal"
       }
     }
   }

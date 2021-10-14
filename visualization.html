@@ -23,7 +23,7 @@
         xobj.send(null);
       }
 
-      loadJSON('./spec.vg.json', (json) => {
+      loadJSON('./vega_lite/spec.vg.json', (json) => {
         console.log(json)
         vegaEmbed("#vis", JSON.parse(json));
       })
