@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
+    "width": 10000,
     "height": 1000,
     "data": {
       "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
@@ -19,12 +19,22 @@
         "fields": ["lga_2016", "people"]
       }
     }],
-    "projection": {
-      "type": "identity",
-      "reflectY": true
-    },
-    "mark": "geoshape",
+    "mark": "bar",
     "encoding": {
+      "x": {
+        "field": "lga_2016",
+        "type": "nominal",
+        "sort": {
+          "field": "people",
+          "order": "descending",
+          "op": "sum"
+        }
+      },
+      "y": {
+        "field": "people",
+        "type": "quantitative",
+        "aggregate": "sum"
+      },
       "color": {
         "field": "people",
         "type": "quantitative",
