@@ -13,11 +13,14 @@
       "lookup": "properties.LGA_CODE20",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/family_incomes.csv"
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/family_income_aggregates.csv"
         },
         "key": "lga_2016",
-        "fields": ["lga_2016", "people"]
+        "fields": ["lga_2016", "total_families", "total_weekly_incomes", "total_annual_incomes"]
       }
+    }, {
+      "calculate": "round(datum.total_annual_incomes/datum.total_families)",
+      "as": "mean_annual_income"
     }],
     "mark": "bar",
     "encoding": {
@@ -25,22 +28,13 @@
         "field": "lga_2016",
         "type": "nominal",
         "sort": {
-          "field": "people",
-          "order": "descending",
-          "op": "sum"
+          "field": "mean_annual_income",
+          "order": "descending"
         }
       },
       "y": {
-        "field": "people",
-        "type": "quantitative",
-        "aggregate": "sum"
-      },
-      "color": {
-        "field": "people",
-        "type": "quantitative",
-        "scale": {
-          "type": "symlog"
-        }
+        "field": "mean_annual_income",
+        "type": "quantitative"
       }
     }
   }

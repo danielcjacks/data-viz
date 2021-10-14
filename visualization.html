@@ -7,8 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
   </head>
   <body>
-    <div id="vis1">
-    <div id="vis2">
+    <div id="vis1"> </div>
+    <div id="vis2"> </div>
 
     <script type="text/javascript">
       function loadJSON(path, callback) {
@@ -30,7 +30,7 @@
         });
       }
 
-      render_graph("vis", "./vega_lite/spec.vg.json");
+      render_graph("vis1", "./vega_lite/spec.vg.json");
       render_graph("vis2", "./vega_lite/spec2.vg.json");
     </script>
   </body>
