@@ -73,13 +73,6 @@
         "reflectY": true
       },
       "encoding": {
-        "size":{
-          "field": "circle_size",
-          "type": "quantitative",
-          "scale": {
-            "range": [0, 5000]
-          }
-        },
         "longitude": {
           "field": "centroid[0]",
           "type": "quantitative"
@@ -87,6 +80,13 @@
         "latitude": {
           "field": "centroid[1]",
           "type": "quantitative"
+        },
+        "size":{
+          "field": "circle_size",
+          "type": "quantitative",
+          "scale": {
+            "range": [0, 5000]
+          }
         },
         "opacity": {
           "field": "circle_opacity",
