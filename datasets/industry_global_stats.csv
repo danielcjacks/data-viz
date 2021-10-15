@@ -1,31 +1,21 @@
-industry_type_full	industry_type	total_employment	total_wages
-accommodation_and_food_services.txt	hospitality	975	"25,178"
-administrative_and_support_services.txt	administrative services	819	"40,888"
-agriculture_forestry_and_fishing.txt	agriculture	482	"8,038"
-arts_and_recreation_services.txt	arts and recreation	193	"6,733"
-construction.txt	construction	"1,052"	"61,576"
-education_and_training.txt	education	393	"19,673"
-electricity_gas_and_waste_services.txt	utility services	104	"11,192"
-financial_and_insurance_services.txt	finance	-1	-1
-health_care_and_social_assistance.txt	health care	"1,114"	"49,254"
-information_meda_and_telecommunications.txt	information technology	170	"14,478"
-manufacturing.txt	manufacturing	837	"54,951"
-mining.txt	mining	164	"25,201"
-professional_scientific_and_technical_services.txt	scientific and technical services	983	"69,824"
-public_administration_and_safety.txt	public administration	77	"3,942"
-rental_hiring_and_real_estate_services.txt	real estate	405	"15,889"
-retail_trade.txt	retail	"1,299"	"42,618"
-transport_postal_and_warehousing.txt	transport and warehousing	577	"34,044"
-wholesale_trade.txt	wholesale	528	"36,764"
-inadequately_described_and_not_stated.txt	not described	-1	-1
-other_services.txt	other	-1	-1
-			
-			
-			
-			
-			
-			
-			
-			
-			
-2015-16			
+industry_type_full,industry_type,total_employment,total_wages
+accommodation_and_food_services.txt,hospitality,975,25178
+administrative_and_support_services.txt,administrative services,819,40888
+agriculture_forestry_and_fishing.txt,agriculture,482,8038
+arts_and_recreation_services.txt,arts and recreation,193,6733
+construction.txt,construction,1052,61576
+education_and_training.txt,education,393,19673
+electricity_gas_and_waste_services.txt,utility services,104,11192
+financial_and_insurance_services.txt,finance,-1,-1
+health_care_and_social_assistance.txt,health care,1114,49254
+information_meda_and_telecommunications.txt,information technology,170,14478
+manufacturing.txt,manufacturing,837,54951
+mining.txt,mining,164,25201
+professional_scientific_and_technical_services.txt,scientific and technical services,983,69824
+public_administration_and_safety.txt,public administration,77,3942
+rental_hiring_and_real_estate_services.txt,real estate,405,15889
+retail_trade.txt,retail,1299,42618
+transport_postal_and_warehousing.txt,transport and warehousing,577,34044
+wholesale_trade.txt,wholesale,528,36764
+inadequately_described_and_not_stated.txt,not described,-1,-1
+other_services.txt,other,-1,-1

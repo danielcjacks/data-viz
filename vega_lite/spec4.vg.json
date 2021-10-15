@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+      "format": {
+        "type": "topojson",
+        "feature": "LGA_2020_AUST"
+      }
+    },
+    "transform": [{
+      "lookup": "properties.LGA_CODE20",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/family_income_aggregates.csv"
+        },
+        "key": "lga_2016",
+        "fields": ["lga_2016", "total_families", "total_weekly_incomes", "total_annual_incomes"]
+      }
+    }, {
+      "calculate": "round(datum.total_annual_incomes/datum.total_families)",
+      "as": "mean_annual_income"
+    }, {
+      "calculate": "datum.total_families / datum.properties.AREASQKM20",
+      "as": "families_per_sqkm"
+    }],
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": "families_per_sqkm",
+        "type": "quantitative",
+        "scale": {
+          "type": "log"
+        }
+      },
+      "y": {
+        "field": "mean_annual_income",
+        "type": "quantitative"
+      }
+    }
+  }
