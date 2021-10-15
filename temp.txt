@@ -1,0 +1,31 @@
+{
+      "projection": {
+        "type": "identity",
+        "reflectY": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "tooltip": {
+          "content": "data"
+        },
+        "stroke": "black",
+        "strokeCap": "round",
+        "strokeJoin": "round",
+        "fillOpacity": 0
+      },
+      "encoding": {
+        "strokeOpacity": {
+          "field": "circle_opacity",
+          "scale": {
+            "range": [0, 0.15]
+          }
+        },
+        "strokeWidth": {
+          "field": "circle_size",
+          "type": "quantitative",
+          "scale": {
+            "range": [0, 200]
+          }
+        }
+      }
+    }

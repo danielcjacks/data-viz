@@ -63,35 +63,42 @@
       }
     },
     {
+      "mark": {
+        "type": "circle",
+        "opacity": 1,
+        "color": "red"
+      },
       "projection": {
         "type": "identity",
         "reflectY": true
       },
-      "mark": {
-        "type": "geoshape",
-        "tooltip": {
-          "content": "data"
-        },
-        "stroke": "black",
-        "strokeCap": "round",
-        "strokeJoin": "round",
-        "fillOpacity": 0
-      },
       "encoding": {
-        "strokeOpacity": {
-          "field": "circle_opacity",
-          "scale": {
-            "range": [0, 0.1]
-          }
-        },
-        "strokeWidth": {
+        "size":{
           "field": "circle_size",
           "type": "quantitative",
           "scale": {
-            "range": [0, 500]
+            "range": [0, 5000]
+          }
+        },
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "centroid[1]",
+          "type": "quantitative"
+        },
+        "opacity": {
+          "field": "circle_opacity",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [0, 50000],
+            "range": [0, 0.5]
           }
         }
       }
+      
     }
   ]
 }
