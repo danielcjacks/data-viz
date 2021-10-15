@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 10000,
-    "height": 1000,
+    "width": 500,
+    "height": 500,
     "data": {
       "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
       "format": {
@@ -21,15 +21,17 @@
     }, {
       "calculate": "round(datum.total_annual_incomes/datum.total_families)",
       "as": "mean_annual_income"
+    }, {
+      "calculate": "datum.total_families / datum.properties.AREASQKM20",
+      "as": "families_per_sqkm"
     }],
-    "mark": "bar",
+    "mark": "point",
     "encoding": {
       "x": {
-        "field": "lga_2016",
-        "type": "nominal",
-        "sort": {
-          "field": "mean_annual_income",
-          "order": "descending"
+        "field": "families_per_sqkm",
+        "type": "quantitative",
+        "scale": {
+          "type": "log"
         }
       },
       "y": {

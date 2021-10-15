@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Embedding Vega-Lite</title>
+    <title>Data visualization</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
   </head>
   <body>
     <div id="vis1"> </div>
+    <br/>
     <div id="vis2"> </div>
+    <br/>
+    <div id="vis3"> </div>
 
     <script type="text/javascript">
       function loadJSON(path, callback) {
@@ -32,6 +35,7 @@
 
       render_graph("vis1", "./vega_lite/spec.vg.json");
       render_graph("vis2", "./vega_lite/spec2.vg.json");
+      render_graph("vis3", "./vega_lite/spec3.vg.json");
     </script>
   </body>
 </html>

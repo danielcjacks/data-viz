@@ -40,6 +40,9 @@
     {
       "calculate": "datum.properties.AREASQKM20",
       "as": "circle_opacity"
+    }, {
+      "calculate": "datum.total_families / datum.properties.AREASQKM20",
+      "as": "population_density"
     }
   ],
   "layer": [
@@ -56,39 +59,11 @@
       },
       "encoding": {
         "color": {
-          "field": "mean_annual_income",
-          "type": "quantitative",
-          "bin": false
-        }
-      }
-    },
-    {
-      "projection": {
-        "type": "identity",
-        "reflectY": true
-      },
-      "mark": {
-        "type": "geoshape",
-        "tooltip": {
-          "content": "data"
-        },
-        "stroke": "black",
-        "strokeCap": "round",
-        "strokeJoin": "round",
-        "fillOpacity": 0
-      },
-      "encoding": {
-        "strokeOpacity": {
-          "field": "circle_opacity",
-          "scale": {
-            "range": [0, 0.1]
-          }
-        },
-        "strokeWidth": {
-          "field": "circle_size",
+          "field": "population_density",
           "type": "quantitative",
           "scale": {
-            "range": [0, 500]
+            "type": "symlog",
+            "base": 1000
           }
         }
       }
