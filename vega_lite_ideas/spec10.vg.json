@@ -35,14 +35,23 @@
     },
     {
       "calculate": "datum.total_families / datum.properties.AREASQKM20",
-      "as": "circle_size"
+      "as": "population_density"
     }, 
     {
       "calculate": "datum.properties.AREASQKM20",
       "as": "circle_opacity"
-    }, {
-      "calculate": "datum.total_families / datum.properties.AREASQKM20",
-      "as": "population_density"
+    },
+    {
+      "calculate": "(datum.mean_annual_income - 36902) / (226101 - 36902)",
+      "as": "normalized_annual_income"
+    },
+    {
+      "calculate": "1 + (datum.population_density / 1470)",
+      "as": "normalized_population_density"
+    },
+    {
+      "calculate": "datum.normalized_annual_income * datum.normalized_population_density / 2",
+      "as": "color_value"
     }
   ],
   "layer": [
@@ -59,11 +68,10 @@
       },
       "encoding": {
         "color": {
-          "field": "population_density",
+          "field": "color_value",
           "type": "quantitative",
           "scale": {
-            "type": "symlog",
-            "base": 1000
+            "scheme": "redyellowgreen"
           }
         }
       }

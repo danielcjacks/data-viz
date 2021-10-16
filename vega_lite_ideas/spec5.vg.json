@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1300,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_geo_stats.csv"
+  },
+  "transform": [
+    {
+      "lookup": "lga_2016",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+          "format": {
+            "type": "topojson",
+            "feature": "LGA_2020_AUST"
+          }
+        },
+        "key": "properties.LGA_CODE20",
+        "fields": ["properties"]
+      }
+    },
+    {
+      "calculate": "datum.industry_people / datum.lga_total_industry_people",
+      "as": "industry_percentage"
+    },
+    {
+      "filter": "datum.properties"
+    },
+    {
+      "calculate": "datum.properties ? parseInt(datum.lga_total_industry_people) / parseInt(datum.properties.AREASQKM20) : -1",
+      "as": "population_density"
+    },
+    {
+      "aggregate": [{
+        "op": "max",
+        "field": "industry_percentage",
+        "as": "industry_percentage_max"
+      }, {
+        "op": "argmax",
+        "field": "industry_percentage",
+        "as": "argmax"
+      }],
+      "groupby": ["lga_2016"]
+    }, {
+      "calculate": "1",
+      "as": "const"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "square",
+        "width": 100,
+        "strokeWidth": 100,
+        "tooltip": {
+          "content": "data"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "argmax.population_density",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "argmax.industry_type",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "argmax.industry_type"
+        }
+      }
+    }
+  ]
+}

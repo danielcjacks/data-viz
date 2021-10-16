@@ -24,22 +24,6 @@
           "total_annual_incomes"
         ]
       }
-    },
-    {
-      "calculate": "round(datum.total_annual_incomes/datum.total_families)",
-      "as": "mean_annual_income"
-    },
-    {
-      "calculate": "geoCentroid(null, datum)",
-      "as": "centroid"
-    },
-    {
-      "calculate": "datum.total_families / datum.properties.AREASQKM20",
-      "as": "circle_size"
-    }, 
-    {
-      "calculate": "datum.properties.AREASQKM20",
-      "as": "circle_opacity"
     }, {
       "calculate": "datum.total_families / datum.properties.AREASQKM20",
       "as": "population_density"

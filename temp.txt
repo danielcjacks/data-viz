@@ -29,3 +29,69 @@
         }
       }
     }
+
+
+
+
+
+------------
+
+{
+      "mark": {
+        "type": "circle",
+        "color": "#e75d1e",
+        "opacity": 1,
+        "strokeWidth": 1,
+        "stroke": "black",
+        "fillOpacity": 0
+      },
+      "projection": {
+        "type": "identity",
+        "reflectY": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "centroid[1]",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "population_density",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              0,
+              5000
+            ]
+          },
+          "legend": {
+            "title": "People per square km",
+            "values": [
+              10,
+              700,
+              1400
+            ],
+            "symbolOpacity": 0.5
+          }
+        },
+        "strokeOpacity": {
+          "field": "region_size",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              50000
+            ],
+            "range": [
+              0,
+              0
+            ]
+          },
+          "legend": null
+        }
+      }
+    }

@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(30, 30, 30);
+}
+
+.main_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%
+}
+
+.grid_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+#population_density {
+    
+}
