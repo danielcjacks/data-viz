@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 500,
+  "height": 800,
   "background": "none",
   "autosize": {
     "type": "fit-x",
@@ -20,18 +20,20 @@
       "lookup": "properties.LGA_CODE20",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/family_income_aggregates.csv"
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/total_population.csv"
         },
-        "key": "lga_2016",
+        "key": "LGA_2018",
         "fields": [
-          "lga_2016",
-          "total_families"
+          "OBS_VALUE"
         ]
       }
     },
     {
-      "calculate": "datum.total_families / datum.properties.AREASQKM20",
+      "calculate": "datum.OBS_VALUE / datum.properties.AREASQKM20",
       "as": "population_density"
+    },
+    {
+      "filter": "datum.properties.LGA_CODE20 != '99399'"
     }
   ],
   "layer": [

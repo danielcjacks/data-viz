@@ -78,10 +78,6 @@
           "filter": "!datum.is_urban"
         }
       ],
-      "projection": {
-        "type": "identity",
-        "reflectY": true
-      },
       "mark": {
         "type": "geoshape",
         "tooltip": {
@@ -112,10 +108,6 @@
           "filter": "datum.is_urban"
         }
       ],
-      "projection": {
-        "type": "identity",
-        "reflectY": true
-      },
       "mark": {
         "type": "geoshape",
         "tooltip": {
@@ -141,37 +133,64 @@
           }
         }
       }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.OBS_VALUE == 158411"
-        }
-      ],
-      "mark": {
-        "type": "square",
-        "opacity": 1,
-        "strokeWidth": 2,
-        "stroke": "white",
-        "fillOpacity": 0,
-        "size": 5000
-      },
-      "projection": {
-        "type": "identity",
-        "reflectY": true
-      },
-      "encoding": {
-        "longitude": {
-          "field": "centroid[0]",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "centroid[1]",
-          "type": "quantitative"
-        }
-      }
     }
   ],
+  "projection": {
+    "type": "identity",
+    "reflectY": true,
+    "fit": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            150.6,
+            -33
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            151,
+            -33
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            151,
+            -35
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            150.6,
+            -35
+          ]
+        }
+      }
+    ],
+    "clipExtent": [
+      [
+        0,
+        0
+      ],
+      [
+        800,
+        800
+      ]
+    ]
+  },
   "resolve": {
     "scale": {
       "color": "independent"
