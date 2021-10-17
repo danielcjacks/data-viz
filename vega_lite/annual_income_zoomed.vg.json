@@ -8,6 +8,16 @@
     "resize": true,
     "contains": "content"
   },
+  "params": [
+    {
+      "name": "show_urban_regions",
+      "bind": {
+        "input": "checkbox",
+        "element": "#show-urban-zoomed",
+        "name": "Show urban regions (zoomed)"
+      }
+    }
+  ],
   "data": {
     "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
     "format": {
@@ -69,26 +79,38 @@
     },
     {
       "filter": "datum.properties.LGA_CODE20 != '99399'"
+    },
+    {
+      "calculate": "datum.mean_annual_income * !datum.is_urban",
+      "as": "joinaggregate_sum"
     }
   ],
   "encoding": {
-    "tooltip": [{
-      "field": "properties.LGA_NAME20",
-      "title": "Region"
-    }, {
-      "field": "population_density",
-      "format": ".2r",
-      "title": "People per square km"
-    }, {
-      "field": "mean_annual_income",
-      "format": "$.2s"
-    }]
+    "tooltip": [
+      {
+        "field": "properties.LGA_CODE20",
+        "title": "LGA Code"
+      },
+      {
+        "field": "properties.LGA_NAME20",
+        "title": "Region"
+      },
+      {
+        "field": "population_density",
+        "format": ".2r",
+        "title": "People per square km"
+      },
+      {
+        "field": "mean_annual_income",
+        "format": "$.2s"
+      }
+    ]
   },
   "layer": [
     {
       "transform": [
         {
-          "filter": "!datum.is_urban"
+          "filter": "!datum.is_urban || !show_urban_regions"
         }
       ],
       "mark": {
@@ -104,13 +126,14 @@
           "type": "quantitative",
           "scale": {
             "scheme": "darkblue",
-            "domainMin": 0,
+            "domainMin": 37000,
             "domainMax": 226101
           },
           "legend": {
             "title": "Rural mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-left"
+            "orient": "bottom-right",
+            "values": [37000, 230000]
           }
         }
       }
@@ -118,7 +141,7 @@
     {
       "transform": [
         {
-          "filter": "datum.is_urban"
+          "filter": "datum.is_urban && show_urban_regions"
         }
       ],
       "mark": {
@@ -134,16 +157,57 @@
           "type": "quantitative",
           "scale": {
             "scheme": "darkgold",
-            "domain": [
-              0,
-              226101
-            ]
+            "domainMin": 37000,
+            "domainMax": 226101
           },
           "legend": {
             "title": "Urban mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-left"
+            "orient": "bottom-right",
+            "values": [37000, 230000]
           }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.properties.LGA_CODE20 == 18500"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "tooltip": {
+          "content": "data"
+        },
+        "strokeWidth": 1.2,
+        "stroke": "#b9313c",
+        "fillOpacity": 0
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.properties.LGA_CODE20 == 18500"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "opacity": 1,
+        "text": ["Woollahra has a", "mean family income", "of 200k"],
+        "color": "#cccccc",
+        "dx": 70,
+        "dy": -20,
+        "line":true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "centroid[1]",
+          "type": "quantitative"
         }
       }
     }

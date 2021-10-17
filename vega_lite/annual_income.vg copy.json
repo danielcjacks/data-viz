@@ -11,9 +11,7 @@
   "params": [{
     "name": "show_urban_regions",
     "bind": {
-      "input": "checkbox",
-      "element": "#show-urban-overview",
-      "name": "Show urban regions (overview)"
+      "input": "checkbox"
     }
   }],
   "data": {
@@ -108,7 +106,7 @@
           "legend": {
             "title": "Rural mean annual income",
             "direction": "horizontal",
-            "orient": "top-right",
+            "orient": "bottom-right",
             "values": [37000, 230000]
           }
         }
@@ -143,7 +141,7 @@
           "legend": {
             "title": "Urban mean annual income",
             "direction": "horizontal",
-            "orient": "top-right",
+            "orient": "bottom-right",
             "values": [37000, 230000]
           }
         }

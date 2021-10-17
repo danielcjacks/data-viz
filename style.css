@@ -1,18 +1,23 @@
 body {
   background-color: rgb(30, 30, 30);
+  padding: 20px 0;
 }
 
 .main_grid {
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
+  gap: 300px;
 }
 
 .grid_row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 8fr 8fr 1fr;
+  grid-template-rows: 1fr;
   width: 100%;
-  align-items: center;
+  align-items: stretch;
+  grid-auto-flow: column;
+  gap: 150px
 }
 
 h1 {
@@ -36,6 +41,9 @@ h1 {
   font-style: normal;
   --highlight-color: #b3b3b3;
   line-height: 18pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .body-text strong {
@@ -67,4 +75,9 @@ ul > li:before {
   content: "–"; /* en dash */
   position: absolute;
   margin-left: -1.1em;
+}
+
+.click-icon {
+    font-size: 18px;
+    padding-right: 5px;
 }

@@ -15,31 +15,84 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
   </head>
   <body>
     <h1>Income in Australia</h1>
     <div class="main_grid">
       <div class="grid_row">
-        <div class='body-text'>
-          <p>
-            Australia's <em>population</em> is <em>not evenly distributed</em>.
-          </p>
-          <ul>
-            <li><em>Most</em> Australians live in the <em>cooler</em>, <em>less arid coastal</em> regions</li>
-            <li>
-              Australia's <em>five largest cities</em> hold <strong>65%</strong> of the 
-              <em>population</em> but take up only <strong>0.6%</strong> of the total 
-              <em>area</em>
-            </li>
-          </ul>
+        <div></div>
+        <div class="body-text">
+          <div>
+            <p>
+              Australia's <em>population</em> is
+              <em>not evenly distributed</em>.
+            </p>
+            <ul>
+              <li>
+                <em>Most</em> Australians live in the <em>cooler</em>,
+                <em>less arid coastal</em> regions
+              </li>
+              <li>
+                Australia's <em>five largest cities</em> hold
+                <strong>65%</strong> of the <em>population</em> but take up only
+                <strong>0.6%</strong> of the total
+                <em>area</em>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <i class="fas fa-hand-pointer click-icon"></i> Drag on the lower
+              graph to filter the map.
+            </p>
+          </div>
         </div>
         <div id="pop_density"></div>
+        <div></div>
       </div>
-      <div class="grid_row">
-        <div id="annual_income"></div>
-      </div>
-      <div class="grid_row">
-        <div id="annual_income_zoomed"></div>
+
+      <div>
+        <div class="grid_row">
+          <div></div>
+          <div class="body-text">
+            <div>
+              <p>
+                <em>Urban</em> regions are defined by the
+                <em>European Commission</em> as settlements with:
+              </p>
+              <ul>
+                <li><strong>5,000</strong> <em>inhabitants</em></li>
+                <li><strong>300</strong> <em>people per square km</em></li>
+              </ul>
+              <br>
+              <br>
+              <p>
+                <i class="fas fa-hand-pointer click-icon"></i> Use the controls below to highlight urban regions.
+              </p>
+              <div id="show-urban-overview"></div>
+              <div id="show-urban-zoomed"></div>
+            </div>
+          </div>
+          <div id="annual_income"></div>
+          <div></div>
+        </div>
+        <div class="grid_row">
+          <div></div>
+          <div class="body-text">
+            <p>
+              Many of the regions with very <em>high average incomes</em> in Australia are in large <em>cities</em>. 
+              For example, <em>Sydney</em> is Australia's <em>largest</em> city with over <strong>5.3M</strong> people.
+              The <em>average annual family income</em> in <em>urban Sydney</em> is <strong>140k</strong>, while the <em>national average</em> is <strong>120k</strong>. 
+              That means the average in <em>Sydney</em> is <strong>16%</strong> <em>higher</em> than the <em>national</em> average.
+            </p>
+          </div>
+          <div id="annual_income_zoomed"></div>
+          <div></div>
+        </div>
       </div>
       <div class="grid_row">
         <div id="income"></div>
@@ -52,8 +105,11 @@
   </body>
   <script type="text/javascript">
     render_graph("pop_density", "./vega_lite/pop_density.vg.json");
-    // render_graph("annual_income", "./vega_lite/annual_income.vg.json");
-    // render_graph("annual_income_zoomed", "./vega_lite/annual_income_zoomed.vg.json");
+    render_graph("annual_income", "./vega_lite/annual_income.vg.json");
+    render_graph(
+      "annual_income_zoomed",
+      "./vega_lite/annual_income_zoomed.vg.json"
+    );
     // // render_graph("income", "./vega_lite/income.vg.json");
     // render_graph(
     //   "largest_industries_v2",

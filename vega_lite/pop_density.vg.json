@@ -7,7 +7,7 @@
     "contains": "content"
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST_simplified.json",
     "format": {
       "type": "topojson",
       "feature": "LGA_2020_AUST"
@@ -38,16 +38,33 @@
       "filter": "datum.properties.LGA_CODE20 != '99399'"
     },
     {
-      "sort": [{"field": "population_density"}],
-      "window": [{"op": "sum", "field": "total_people", "as": "cumulative_people"}],
-      "frame": [null, 0]
+      "sort": [
+        {
+          "field": "population_density"
+        }
+      ],
+      "window": [
+        {
+          "op": "sum",
+          "field": "total_people",
+          "as": "cumulative_people"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
     }
   ],
   "vconcat": [
     {
-      "transform": [{
-        "filter": { "param": "selection"}
-      }],
+      "transform": [
+        {
+          "filter": {
+            "param": "brush"
+          }
+        }
+      ],
       "width": "container",
       "height": 800,
       "projection": {
@@ -93,14 +110,22 @@
       "height": 100,
       "width": "container",
       "mark": {
-        "type": "area"
+        "type": "area",
+        "color": "#47576d"
       },
       "encoding": {
         "x": {
           "field": "population_density",
           "type": "quantitative",
           "axis": {
-            "values": [1, 10, 100, 1000, 8000]
+            "title": "People per square km",
+            "values": [
+              1,
+              10,
+              100,
+              1000,
+              8000
+            ]
           },
           "scale": {
             "type": "symlog"
@@ -108,13 +133,38 @@
         },
         "y": {
           "field": "cumulative_people",
-          "type": "quantitative"
+          "type": "quantitative",
+          "axis": {
+            "title": "Total people"
+          }
         }
       },
-      "params": [{
-        "name": "selection",
-        "select": {"type": "interval", "encodings": ["x"]}
-      }]
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x"
+            ],
+            "on": {
+              "source": "window",
+              "type": "mousemove",
+              "consume": true,
+              "between": [
+                {
+                  "source": "scope",
+                  "type": "mousedown",
+                  "filter": [
+                    "!event.item || event.item.mark.name !== \"brush_brush\""
+                  ]
+                },
+                {"source": "window", "type": "mouseup"}
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "config": {
