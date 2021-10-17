@@ -13,6 +13,6 @@ function loadJSON(path, callback) {
 
 function render_graph(div_tag, spec_filename) {
     loadJSON(spec_filename, (json) => {
-        vegaEmbed("#" + div_tag, JSON.parse(json), { renderer: "svg" });
+        vegaEmbed("#" + div_tag, JSON.parse(json), { renderer: "svg", actions: false });
     });
 }

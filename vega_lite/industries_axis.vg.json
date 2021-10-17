@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 150,
   "height": 300,
   "background": "none",
   "autosize": {
@@ -23,10 +23,8 @@
   "layer": [
     {
       "mark": {
-        "type": "bar",
-        "tooltip": {
-          "content": "data"
-        }
+        "type": "text",
+        "color": "darkgrey"
       },
       "encoding": {
         "y": {
@@ -38,17 +36,8 @@
           },
           "axis": null
         },
-        "x": {
-          "field": "mean_wage",
-          "type": "quantitative",
-          "sort": "descending"
-        },
-        "size": {
-          "field": "total_employment",
-          "type": "quantitative",
-          "legend": {
-            "orient": "bottom"
-          }
+        "text": {
+          "field": "industry_type"
         }
       }
     }

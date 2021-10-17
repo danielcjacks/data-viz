@@ -9,7 +9,7 @@
     "contains": "content"
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_geo_stats.csv"
+    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_geo_max.csv"
   },
   "transform": [
     {
@@ -41,7 +41,7 @@
       }
     },
     {
-      "lookup": "industry_type",
+      "lookup": "max_industry_type",
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_global_stats.csv"
@@ -69,21 +69,7 @@
       "as": "population_density"
     },
     {
-      "aggregate": [
-        {
-          "op": "max",
-          "field": "industry_percentage",
-          "as": "industry_percentage_max"
-        },
-        {
-          "op": "argmax",
-          "field": "industry_percentage",
-          "as": "argmax"
-        }
-      ],
-      "groupby": [
-        "lga_2016"
-      ]
+      "filter": "datum.max_industry_type != 'not described' && datum.max_industry_type != 'transport and warehousing'"
     }
   ],
   "layer": [
@@ -98,18 +84,30 @@
       },
       "encoding": {
         "x": {
-          "field": "argmax.population_density",
+          "field": "population_density",
           "type": "quantitative",
           "scale": {
             "type": "log"
           }
         },
         "y": {
-          "field": "argmax.industry_type",
-          "type": "nominal"
+          "field": "max_industry_type",
+          "type": "nominal",
+          "sort": {
+            "field": "mean_wage",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labels": false,
+            "grid": true,
+            "ticks": false,
+            "domain": false,
+            "tickOffset": -15
+          }
         },
         "color": {
-          "field": "argmax.industry_type"
+          "field": "max_industry_type"
         }
       }
     }
