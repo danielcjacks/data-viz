@@ -13,9 +13,3 @@ body {
     grid-template-columns: 1fr 1fr;
     width: 100%;
 }
-
-.industries_grid_row {
-    display: grid;
-    grid-template-columns: 1fr 150px 1fr;
-    width: 100%;
-}
