@@ -1,0 +1,563 @@
+lga_2016,max_industry_type,max_people,total_people_for_lga
+10050,health care,3480,22907
+10130,education,2395,12327
+10250,health care,2957,17463
+10300,agriculture,295,982
+10470,health care,2442,18165
+10550,health care,1892,13153
+10600,health care,823,4890
+10650,agriculture,606,3282
+10750,health care,19203,151468
+10800,agriculture,727,2541
+10850,agriculture,407,3222
+10900,education,5301,35860
+10950,agriculture,269,1173
+11100,health care,2422,22963
+11150,education,149,1000
+11200,agriculture,120,498
+11250,health care,1262,6902
+11300,health care,2126,17174
+11350,health care,1919,13557
+11400,agriculture,1086,6032
+11450,construction,4906,40014
+11500,health care,8546,68841
+11520,scientific and technical services,5679,44699
+11570,health care,14976,138192
+11600,agriculture,644,1384
+11650,health care,21413,139593
+11700,agriculture,214,564
+11720,health care,2604,21626
+11730,health care,2711,17565
+11750,mining,644,2014
+11800,health care,5015,29620
+12000,agriculture,391,1728
+12150,agriculture,442,1419
+12350,agriculture,822,4811
+12380,health care,10326,86838
+12700,construction,452,3885
+12730,agriculture,633,3812
+12750,health care,1892,12976
+12850,utility services,8551,71899
+12870,agriculture,824,4970
+12900,agriculture,714,3944
+12930,health care,8431,69537
+12950,agriculture,497,1783
+13010,agriculture,609,3224
+13310,health care,1902,12722
+13340,agriculture,1019,4614
+13450,utility services,2170,11713
+13510,agriculture,667,4382
+13550,agriculture,741,5381
+13660,agriculture,832,2083
+13800,construction,4915,32329
+13850,agriculture,308,1296
+13910,agriculture,1570,7563
+14000,health care,9547,70798
+14100,scientific and technical services,922,6240
+14170,scientific and technical services,14042,99575
+14200,health care,850,6393
+14300,agriculture,380,2318
+14350,health care,1523,9463
+14400,health care,1362,9488
+14500,scientific and technical services,9340,54920
+14550,agriculture,605,3239
+14600,agriculture,694,2472
+14650,health care,14336,85264
+14700,scientific and technical services,3450,19292
+14750,utility services,856,4705
+14850,health care,3456,18168
+14870,health care,904,7798
+14900,health care,9590,83905
+14920,agriculture,737,3013
+14950,agriculture,372,1294
+15050,health care,4689,34692
+15240,health care,5185,30032
+15270,mining,1455,9689
+15300,agriculture,1387,5521
+15350,scientific and technical services,2728,13999
+15520,agriculture,962,4994
+15560,agriculture,624,1716
+15650,mining,1474,6732
+15700,health care,1043,6229
+15750,agriculture,1107,5657
+15800,agriculture,451,2325
+15850,agriculture,679,2592
+15900,health care,13414,73034
+15950,scientific and technical services,8410,40445
+15990,scientific and technical services,17115,129685
+16100,agriculture,369,2241
+16150,health care,3344,17805
+16200,health care,712,5840
+16260,health care,13339,106593
+16350,construction,11045,94859
+16380,health care,5196,29655
+16400,health care,3467,27602
+16490,public administration,7481,29389
+16550,health care,8633,68276
+16610,utility services,1218,8265
+16650,health care,5836,52827
+16700,scientific and technical services,7246,57245
+16900,health care,4290,29606
+16950,health care,5356,36330
+17000,mining,2531,10822
+17040,hospitality,1345,9860
+17080,agriculture,1089,5991
+17100,health care,2712,19618
+17150,health care,12699,112765
+17200,scientific and technical services,19484,117252
+17310,health care,3900,25997
+17350,agriculture,528,2514
+17400,agriculture,547,2361
+17420,health care,9232,80179
+17550,health care,5624,35731
+17620,agriculture,1179,6298
+17640,agriculture,905,3528
+17650,agriculture,428,2633
+17750,health care,4704,29834
+17850,agriculture,573,1414
+17900,agriculture,564,2060
+17950,agriculture,472,1149
+18020,agriculture,921,3335
+18050,scientific and technical services,6321,36426
+18100,agriculture,539,1437
+18200,agriculture,557,2786
+18230,health care,3407,22142
+18250,scientific and technical services,6559,36309
+18350,health care,2582,20644
+18400,construction,3561,24054
+18450,health care,13077,88251
+18500,scientific and technical services,5388,28005
+18710,public administration,1530,8076
+19399,agriculture,248,599
+19499,hospitality,389,3331
+19799,health care,18,130
+20110,hospitality,758,5488
+20260,agriculture,701,4708
+20570,health care,7531,44716
+20660,health care,8867,58915
+20740,health care,1584,12537
+20830,health care,2579,21255
+20910,scientific and technical services,6851,45993
+21010,health care,812,5659
+21110,scientific and technical services,12339,82260
+21180,utility services,8682,80034
+21270,agriculture,727,2486
+21370,health care,2135,15950
+21450,construction,6077,44955
+21610,utility services,17067,137913
+21670,utility services,620,4352
+21750,utility services,1292,9545
+21830,agriculture,2204,7164
+21890,health care,9197,70311
+22110,health care,2488,17003
+22170,health care,8498,63406
+22250,agriculture,1058,4404
+22310,scientific and technical services,9425,69634
+22410,agriculture,1156,8311
+22490,health care,1396,10196
+22620,health care,8113,48675
+22670,utility services,9516,60306
+22750,health care,15861,103580
+22830,health care,4105,26976
+22910,health care,931,6346
+22980,agriculture,601,2298
+23110,health care,4187,41978
+23190,health care,1511,9111
+23270,health care,8852,81025
+23350,health care,1083,7492
+23430,health care,8719,74103
+23670,health care,9443,77348
+23810,health care,4289,29490
+23940,agriculture,1008,2838
+24130,construction,2423,21741
+24210,health care,6705,52818
+24250,hospitality,436,3781
+24330,health care,4464,41648
+24410,health care,7247,54940
+24600,scientific and technical services,11598,65156
+24650,retail,6554,60028
+24780,health care,2962,22501
+24850,construction,2296,18406
+24900,agriculture,1912,11806
+24970,health care,9725,80373
+25060,health care,6522,57761
+25150,construction,1788,14632
+25250,health care,9453,80352
+25340,construction,9011,67498
+25430,health care,1183,7558
+25490,agriculture,2021,7730
+25620,construction,692,5954
+25710,health care,4157,32575
+25810,health care,778,4859
+25900,scientific and technical services,9393,57705
+25990,agriculture,546,2664
+26080,health care,130,1046
+26170,agriculture,2086,12184
+26260,agriculture,1463,7250
+26350,scientific and technical services,9669,56530
+26430,agriculture,832,4369
+26490,health care,1793,14079
+26610,agriculture,1508,8568
+26670,agriculture,637,2673
+26700,health care,2106,12616
+26730,health care,2577,15601
+26810,health care,2362,17944
+26890,agriculture,818,1860
+26980,health care,10040,74705
+27070,health care,11459,88550
+27170,health care,2668,18199
+27260,health care,10840,98411
+27350,scientific and technical services,8771,50781
+27450,construction,9843,74415
+27630,agriculture,721,2626
+29399,hospitality,153,440
+29499,hospitality,245,2033
+29799,transport and warehousing,8,23
+30250,public administration,67,231
+30300,agriculture,756,2149
+30370,agriculture,1414,7185
+30410,agriculture,461,1447
+30450,agriculture,68,167
+30760,agriculture,296,932
+30900,agriculture,108,218
+31000,health care,77779,570455
+31750,agriculture,65,220
+31820,health care,5533,33970
+31900,agriculture,1674,7841
+31950,public administration,37,147
+32080,health care,10445,72405
+32250,agriculture,149,813
+32260,agriculture,2634,12084
+32270,mining,3269,13460
+32310,education,623,4579
+32330,public administration,40,127
+32450,mining,388,1520
+32500,agriculture,231,1707
+32600,agriculture,44,110
+32750,agriculture,52,164
+32770,education,78,279
+32810,hospitality,1352,5509
+33100,agriculture,164,360
+33200,agriculture,280,795
+33220,health care,5744,32271
+33360,utility services,3682,27074
+33430,health care,32380,260548
+33610,agriculture,1342,4855
+33620,health care,2019,17499
+33800,agriculture,769,4562
+33830,public administration,75,230
+33960,health care,11091,84285
+33980,mining,3757,9972
+34420,public administration,91,227
+34530,health care,1757,15425
+34570,public administration,50,189
+34580,agriculture,2177,15762
+34590,construction,15780,131955
+34710,agriculture,280,1938
+34770,mining,6516,52732
+34800,agriculture,190,490
+34830,public administration,37,82
+34860,agriculture,1239,6356
+34880,agriculture,1398,8284
+35010,health care,25400,189495
+35250,public administration,95,314
+35300,mining,2783,9108
+35600,agriculture,367,2046
+35670,public administration,48,153
+35740,health care,2877,22007
+35760,agriculture,1382,4334
+35780,public administration,180,804
+35790,health care,135,487
+35800,agriculture,214,720
+36070,public administration,69,212
+36150,agriculture,130,452
+36250,health care,8872,70168
+36300,agriculture,143,434
+36370,health care,5192,34314
+36510,construction,1817,16926
+36580,utility services,1145,9270
+36630,health care,1534,11656
+36660,agriculture,1941,14094
+36720,health care,19408,129641
+36820,agriculture,1281,9654
+36910,health care,10501,71188
+36950,health care,298,1379
+36960,public administration,339,974
+37010,health care,12659,86449
+37300,mining,906,2152
+37310,agriculture,2788,14418
+37340,hospitality,2483,15681
+37400,agriculture,150,572
+37550,public administration,45,193
+37570,public administration,25,64
+37600,public administration,92,343
+39499,agriculture,420,3087
+39799,construction,14,60
+40070,health care,1378,9275
+40120,health care,2927,19510
+40220,health care,1496,10077
+40250,education,174,512
+40310,utility services,2251,11167
+40430,agriculture,289,911
+40520,health care,607,4311
+40700,health care,3681,20125
+40910,health care,3372,22950
+41010,agriculture,250,1531
+41060,health care,7308,51718
+41140,agriculture,705,4148
+41190,agriculture,331,846
+41330,health care,112,643
+41560,health care,721,4960
+41750,agriculture,237,496
+41830,agriculture,94,688
+41960,agriculture,129,533
+42030,health care,1399,9847
+42110,agriculture,551,1695
+42250,agriculture,862,3867
+42600,health care,2692,16922
+42750,agriculture,487,2166
+43080,agriculture,254,478
+43220,agriculture,238,526
+43360,agriculture,366,1050
+43650,utility services,1018,7309
+43710,agriculture,597,2536
+43790,agriculture,1192,4989
+43920,construction,458,4106
+44000,public administration,4,8
+44060,health care,7285,41862
+44210,agriculture,615,3287
+44340,health care,5670,30924
+44550,health care,2207,16379
+44620,retail,1666,11612
+44830,agriculture,361,1252
+45040,retail,1084,8470
+45090,agriculture,1110,4236
+45120,agriculture,506,1993
+45290,health care,2913,16962
+45340,health care,12596,74900
+45400,agriculture,147,398
+45540,agriculture,68,493
+45680,health care,4369,32648
+45890,health care,8080,52263
+46090,health care,795,5306
+46300,retail,875,6127
+46450,health care,1144,6507
+46510,health care,1661,10598
+46670,agriculture,771,4068
+46860,agriculture,159,677
+46970,mining,1138,2199
+47140,health care,8194,57408
+47290,agriculture,475,978
+47490,agriculture,287,988
+47630,agriculture,984,3426
+47700,health care,6895,47302
+47800,agriculture,911,2292
+47910,agriculture,303,1087
+47980,health care,3212,18491
+48050,health care,788,4649
+48130,agriculture,695,2783
+48260,health care,651,3402
+48340,agriculture,1143,5033
+48410,health care,4162,27750
+48540,utility services,1306,8299
+48640,agriculture,252,647
+48750,agriculture,259,1983
+48830,agriculture,1081,4061
+49399,agriculture,414,1675
+49499,agriculture,105,734
+49799,transport and warehousing,6,3
+50080,health care,2104,15988
+50210,health care,4546,36286
+50250,mining,2839,8305
+50280,hospitality,789,6892
+50350,health care,923,7242
+50420,health care,3841,32423
+50490,health care,1998,18599
+50560,agriculture,192,671
+50630,mining,376,856
+50770,agriculture,349,752
+50840,mining,216,1942
+50910,agriculture,152,394
+50980,health care,1154,7379
+51080,agriculture,213,465
+51120,agriculture,152,413
+51190,health care,1830,13729
+51260,construction,2083,16075
+51310,health care,2135,12935
+51330,health care,5374,42134
+51400,health care,1077,8019
+51470,agriculture,80,252
+51540,agriculture,398,2344
+51610,agriculture,133,652
+51680,construction,307,2526
+51750,health care,694,4419
+51820,health care,6552,51765
+51890,mining,599,3285
+51960,mining,657,1476
+52030,agriculture,190,429
+52100,agriculture,206,525
+52170,health care,659,3694
+52240,agriculture,276,524
+52310,agriculture,113,371
+52380,public administration,16,66
+52450,agriculture,152,619
+52520,agriculture,263,726
+52590,agriculture,393,1453
+52660,retail,771,6425
+52730,education,296,2364
+52800,education,450,2324
+52870,agriculture,405,2509
+52940,agriculture,127,307
+53010,agriculture,166,324
+53080,public administration,47,305
+53150,health care,552,3720
+53220,mining,3503,5853
+53290,agriculture,1054,6377
+53360,hospitality,164,1405
+53430,health care,1978,13973
+53570,agriculture,627,2154
+53640,agriculture,268,602
+53710,agriculture,152,446
+53780,health care,6149,52930
+53800,health care,2119,16701
+53920,education,184,705
+53990,utility services,1601,11684
+54060,agriculture,180,1389
+54130,agriculture,297,569
+54170,health care,9740,78978
+54200,health care,2840,27255
+54280,mining,3818,14898
+54310,mining,2850,10701
+54340,agriculture,264,1759
+54410,agriculture,113,487
+54480,agriculture,187,298
+54550,agriculture,436,964
+54620,agriculture,190,488
+54690,agriculture,82,192
+54760,agriculture,227,413
+54830,health care,1977,16802
+54900,agriculture,349,708
+54970,mining,380,598
+55040,mining,335,669
+55110,construction,3755,31036
+55180,agriculture,875,4184
+55250,mining,188,463
+55320,health care,6234,46665
+55390,mining,101,220
+55460,agriculture,211,1498
+55530,agriculture,100,232
+55600,agriculture,325,1137
+55670,agriculture,96,304
+55740,health care,614,4059
+55810,education,28,150
+55880,agriculture,154,273
+55950,agriculture,121,276
+56090,health care,1894,17390
+56160,agriculture,14,52
+56230,mining,739,6418
+56300,agriculture,103,544
+56370,agriculture,196,409
+56460,health care,314,2093
+56580,health care,1950,9772
+56620,public administration,70,284
+56730,health care,494,4337
+56790,agriculture,324,1370
+56860,agriculture,35,110
+56930,scientific and technical services,123,697
+57000,agriculture,109,385
+57080,scientific and technical services,1653,11512
+57140,agriculture,148,417
+57210,agriculture,517,2120
+57280,mining,1759,7051
+57350,agriculture,147,369
+57420,agriculture,214,775
+57490,construction,6395,54837
+57630,public administration,18,40
+57700,construction,1684,12871
+57770,hospitality,77,419
+57840,health care,2695,20757
+57910,health care,13466,103428
+57980,health care,1537,9207
+58050,health care,7044,63340
+58190,agriculture,74,169
+58260,agriculture,101,264
+58330,health care,178,1846
+58400,agriculture,52,135
+58470,agriculture,27,72
+58510,health care,1917,17489
+58540,agriculture,221,453
+58570,scientific and technical services,2539,18784
+58610,agriculture,189,745
+58680,agriculture,88,209
+58760,construction,11943,89092
+58820,utility services,210,1626
+58890,agriculture,225,411
+59030,agriculture,46,169
+59100,agriculture,173,353
+59170,agriculture,231,519
+59250,mining,158,371
+59310,agriculture,200,672
+59320,agriculture,104,207
+59330,agriculture,67,191
+59340,health care,431,3231
+59350,mining,102,194
+59360,mining,165,605
+59370,agriculture,209,1401
+59499,mining,233,1773
+59799,mining,119,334
+60210,health care,254,1933
+60410,health care,933,6636
+60610,health care,1182,7664
+60810,health care,1257,8839
+61010,agriculture,275,823
+61210,agriculture,862,3595
+61410,health care,3481,24581
+61510,health care,613,3864
+61610,health care,1321,9650
+61810,agriculture,651,2561
+62010,agriculture,106,433
+62210,utility services,411,2185
+62410,hospitality,312,1648
+62610,health care,2961,19256
+62810,health care,3897,24259
+63010,agriculture,923,6381
+63210,health care,287,2445
+63410,agriculture,221,797
+63610,health care,2288,16335
+63810,health care,618,4487
+64010,health care,4559,27538
+64210,health care,1132,8464
+64610,agriculture,746,5496
+64810,health care,793,6323
+65010,agriculture,397,2599
+65210,agriculture,116,797
+65410,health care,772,5342
+65610,mining,349,1515
+65810,health care,1456,9856
+69499,health care,30,247
+69799,transport and warehousing,19,47
+70200,public administration,2276,12608
+70420,public administration,333,1897
+70540,public administration,9,12
+70620,public administration,181,792
+70700,education,105,455
+71000,public administration,7688,42081
+71300,education,318,1480
+72200,public administration,1031,4120
+72300,construction,2263,11746
+72330,public administration,231,1144
+72800,public administration,3557,17296
+73600,public administration,226,1437
+74050,education,130,524
+74550,agriculture,184,743
+74560,public administration,45,228
+74660,education,209,1451
+74680,education,136,452
+79399,hospitality,592,3636
+79499,hospitality,86,574
+79799,not described,9,28
+89399,public administration,63236,205419
+89499,public administration,56,202
+99399,public administration,431,2151
+99499,health care,3,11
+99799,transport and warehousing,3,6

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 500,
+  "background": "none",
+  "data": {
+    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+    "format": {
+      "type": "topojson",
+      "feature": "LGA_2020_AUST"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.LGA_CODE20",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/family_income_aggregates.csv"
+        },
+        "key": "lga_2016",
+        "fields": [
+          "lga_2016",
+          "total_families",
+          "total_weekly_incomes",
+          "total_annual_incomes"
+        ]
+      }
+    },
+    {
+      "lookup": "properties.LGA_CODE20",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/total_population.csv"
+        },
+        "key": "LGA_2018",
+        "fields": [
+          "OBS_VALUE"
+        ]
+      }
+    },
+    {
+      "calculate": "datum.OBS_VALUE / datum.properties.AREASQKM20",
+      "as": "population_density"
+    },
+    {
+      "filter": "datum.properties.LGA_CODE20 != '99399'"
+    },
+    {
+      "calculate": "round(datum.total_annual_incomes/datum.total_families)",
+      "as": "mean_annual_income"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "population_density",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          },
+          "axis": {
+            "title": "People per square kilometre"
+          }
+        },
+        "y": {
+          "field": "mean_annual_income",
+          "type": "quantitative",
+          "axis": {
+            "tickCount": 4,
+            "labelExpr": "length(datum.label) > 1 ? slice(datum.label, 0, -4) + 'K' : '0'",
+            "title": "Mean annual income (AUD)"
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 300,
+            "y": 100000,
+            "x2": 10000,
+            "y2": 100000
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "y2",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "labelColor": "darkgrey",
+      "titleColor": "dimgrey"
+    },
+    "axis": {
+      "gridColor": "grey",
+      "labelColor": "darkgrey",
+      "titleColor": "dimgrey",
+      "grid": false
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}
