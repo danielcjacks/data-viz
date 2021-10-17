@@ -181,7 +181,7 @@
           "content": "data"
         },
         "strokeWidth": 1.2,
-        "stroke": "#b9313c",
+        "stroke": "#d41f2e",
         "fillOpacity": 0
       }
     },
@@ -194,9 +194,9 @@
       "mark": {
         "type": "text",
         "opacity": 1,
-        "text": ["Woollahra has a", "mean family income", "of 200k"],
+        "text": ["Woollahra has a", "mean family income", "of 200k.", "West Daly (a rural", "region) in NT has a", "mean family income", "of just 42k"],
         "color": "#cccccc",
-        "dx": 70,
+        "dx": 90,
         "dy": -20,
         "line":true
       },

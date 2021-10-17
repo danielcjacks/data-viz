@@ -43,6 +43,10 @@
       "as": "population_density"
     },
     {
+      "calculate": "datum.OBS_VALUE",
+      "as": "total_population"
+    },
+    {
       "filter": "datum.properties.LGA_CODE20 != '99399'"
     },
     {
@@ -52,7 +56,56 @@
   ],
   "layer": [
     {
-      "mark": "point",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "#25221f"
+      },
+      "encoding": {
+        "x": {
+          "datum": 300
+        },
+        "x2": {
+          "datum": 10000
+        },
+        "detail": {
+          "field": "start"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "opacity": 1,
+        "text": "Urban regions",
+        "color": "#cccccc",
+        "align": "center"
+      },
+      "encoding": {
+        "x": {
+          "datum": 1800
+        },
+        "y": {
+          "datum": 25000
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "tooltip": {
+          "content": "data"
+        }
+      },
       "encoding": {
         "x": {
           "field": "population_density",
@@ -70,41 +123,102 @@
           "axis": {
             "tickCount": 4,
             "labelExpr": "length(datum.label) > 1 ? slice(datum.label, 0, -4) + 'K' : '0'",
-            "title": "Mean annual income (AUD)"
+            "title": "Mean annual family income (AUD)"
           }
+        },
+        "opacity": {
+          "field": "total_population",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              0.1,
+              0.8
+            ],
+            "type": "log"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.LGA_CODE20",
+            "title": "LGA Code"
+          },
+          {
+            "field": "properties.LGA_NAME20",
+            "title": "Region"
+          },
+          {
+            "field": "population_density",
+            "format": ".2r",
+            "title": "People per square km"
+          },
+          {
+            "field": "mean_annual_income",
+            "format": "$.2s"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.properties.LGA_CODE20 == '56930'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "opacity": 1,
+        "text": ["Peppermint Grove is", "a small suburb associated", "with Western Australia's", "oldest and wealthiest", "families."],
+        "color": "#cccccc",
+        "align": "center",
+        "dy": -90
+      },
+      "encoding": {
+        "x": {
+          "field": "population_density",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "mean_annual_income",
+          "type": "quantitative"
         }
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "x": 300,
-            "y": 100000,
-            "x2": 10000,
-            "y2": 100000
-          }
-        ]
-      },
+      "transform": [
+        {
+          "filter": "datum.properties.LGA_CODE20 == '56930'"
+        },
+        {
+          "calculate": "datum.mean_annual_income + 5000",
+          "as": "aa"
+        },
+        {
+          "calculate": "datum.mean_annual_income + 15000",
+          "as": "bb"
+        }
+      ],
       "mark": {
-        "type": "rect"
+        "type": "rule",
+        "color": "#cccccc",
+        "size": 1
       },
       "encoding": {
         "x": {
-          "field": "x",
-          "type": "quantitative"
+          "field": "population_density",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
         },
         "y": {
-          "field": "y",
-          "type": "quantitative"
-        },
-        "x2": {
-          "field": "x2",
+          "field": "aa",
           "type": "quantitative"
         },
         "y2": {
-          "field": "y2",
-          "type": "quantitative"
+          "field": "bb"
         }
       }
     }

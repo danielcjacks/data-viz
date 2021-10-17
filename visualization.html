@@ -68,10 +68,11 @@
                 <li><strong>5,000</strong> <em>inhabitants</em></li>
                 <li><strong>300</strong> <em>people per square km</em></li>
               </ul>
-              <br>
-              <br>
+              <br />
+              <br />
               <p>
-                <i class="fas fa-hand-pointer click-icon"></i> Use the controls below to highlight urban regions.
+                <i class="fas fa-hand-pointer click-icon"></i> Use the controls
+                below to highlight urban regions.
               </p>
               <div id="show-urban-overview"></div>
               <div id="show-urban-zoomed"></div>
@@ -84,10 +85,15 @@
           <div></div>
           <div class="body-text">
             <p>
-              Many of the regions with very <em>high average incomes</em> in Australia are in large <em>cities</em>. 
-              For example, <em>Sydney</em> is Australia's <em>largest</em> city with over <strong>5.3M</strong> people.
-              The <em>average annual family income</em> in <em>urban Sydney</em> is <strong>140k</strong>, while the <em>national average</em> is <strong>120k</strong>. 
-              That means the average in <em>Sydney</em> is <strong>16%</strong> <em>higher</em> than the <em>national</em> average.
+              Many of the regions with very <em>high average incomes</em> in
+              Australia are in large <em>cities</em>. For example,
+              <em>Sydney</em> is Australia's <em>largest</em> city with over
+              <strong>5.3M</strong> people. The
+              <em>average annual family income</em> in <em>urban Sydney</em> is
+              <strong>140k</strong>, while the <em>national average</em> is
+              <strong>120k</strong>. That means the average in
+              <em>Sydney</em> is <strong>16%</strong> <em>higher</em> than the
+              <em>national</em> average.
             </p>
           </div>
           <div id="annual_income_zoomed"></div>
@@ -95,7 +101,22 @@
         </div>
       </div>
       <div class="grid_row">
+        <div></div>
+        <div class="body-text">
+          <div>
+            <p>
+              The income vs population density chart on the right
+              highlights some important features:
+            </p>
+            <ul>
+              <li>Most <em>rural</em> regions have a <em>similar</em> average income</li>
+              <li>There is a <em>sharp increase</em> in income in <em>urban</em> regions</li>
+              <li><em>Rural</em> regions are in a <em>wider band</em> since their <em>low population</em> totals cause <em>increased statistical uncertainty</em></li>
+            </ul>
+          </div>
+        </div>
         <div id="income"></div>
+        <div></div>
       </div>
       <div class="grid_row"></div>
       <div class="grid_row">
@@ -110,7 +131,7 @@
       "annual_income_zoomed",
       "./vega_lite/annual_income_zoomed.vg.json"
     );
-    // // render_graph("income", "./vega_lite/income.vg.json");
+    render_graph("income", "./vega_lite/income.vg.json");
     // render_graph(
     //   "largest_industries_v2",
     //   "./vega_lite/largest_industries_v2.vg.json"
