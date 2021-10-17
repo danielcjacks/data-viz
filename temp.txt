@@ -95,3 +95,17 @@
         }
       }
     }
+
+
+
+    ---------------
+
+,
+    {
+      "calculate": "datum.mean_investment_income_row.OBS_VALUE",
+      "as": "mean_investment_income"
+    },
+    {
+      "calculate": "round(datum.private_insurance_row.OBS_VALUE / datum.total_population_row.OBS_VALUE)",
+      "as": "private_insurance_percentage"
+    }

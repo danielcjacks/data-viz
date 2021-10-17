@@ -16,3 +16,28 @@ function render_graph(div_tag, spec_filename) {
         vegaEmbed("#" + div_tag, JSON.parse(json), { renderer: "svg", actions: false });
     });
 }
+
+vega.scheme("my_cool_scheme", [
+    "#ffffff",
+    "#61f4fb",
+    "#3ddff0",
+    "#2bc8e2",
+    "#12b1d4",
+    "#039ac7",
+    "#0082b9",
+    "#086da7",
+    "#1e588a",
+    "#2e4463",
+    "#323232", // mid
+    "#343434", // mid
+    "#643633",
+    "#8c3a36",
+    "#b03e38",
+    "#d14632",
+    "#e75d1e",
+    "#eb7e20",
+    "#ed9c25",
+    "#efb92d",
+    "#f3d431",
+    "#ffeb2c",
+]);

@@ -1,15 +1,70 @@
 body {
-    background-color: rgb(30, 30, 30);
+  background-color: rgb(30, 30, 30);
 }
 
 .main_grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
 }
 
 .grid_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 1;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.annotation {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.body-text {
+  color: #818181;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 10pt;
+  font-weight: normal;
+  font-style: normal;
+  --highlight-color: #b3b3b3;
+  line-height: 18pt;
+}
+
+.body-text strong {
+  color: #dddddd;
+  font-weight: 900;
+}
+
+.body-text em {
+  color: var(--highlight-color);
+  font-weight: normal;
+  font-style: normal;
+}
+
+small {
+  color: #898989;
+  font-size: 8pt;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+small em {
+  color: #c0c0c0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li:before {
+  content: "–"; /* en dash */
+  position: absolute;
+  margin-left: -1.1em;
 }

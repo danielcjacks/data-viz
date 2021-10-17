@@ -6,37 +6,33 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
     <script src="./utils.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <script>
-      vega.scheme("my_cool_scheme", [
-        "#ffffff",
-        "#61f4fb",
-        "#3ddff0",
-        "#2bc8e2",
-        "#12b1d4",
-        "#039ac7",
-        "#0082b9",
-        "#086da7",
-        "#1e588a",
-        "#2e4463",
-        "#323232", // mid
-        "#343434", // mid
-        "#643633",
-        "#8c3a36",
-        "#b03e38",
-        "#d14632",
-        "#e75d1e",
-        "#eb7e20",
-        "#ed9c25",
-        "#efb92d",
-        "#f3d431",
-        "#ffeb2c",
-      ]);
-    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1>Income in Australia</h1>
     <div class="main_grid">
       <div class="grid_row">
+        <div class='body-text'>
+          <p>
+            Australia's <em>population</em> is <em>not evenly distributed</em>.
+          </p>
+          <ul>
+            <li><em>Most</em> Australians live in the <em>cooler</em>, <em>less arid coastal</em> regions</li>
+            <li>
+              Australia's <em>five largest cities</em> hold <strong>65%</strong> of the 
+              <em>population</em> but take up only <strong>0.6%</strong> of the total 
+              <em>area</em>
+            </li>
+          </ul>
+        </div>
         <div id="pop_density"></div>
       </div>
       <div class="grid_row">
@@ -48,18 +44,20 @@
       <div class="grid_row">
         <div id="income"></div>
       </div>
-      <div class="grid_row">
-      </div>
+      <div class="grid_row"></div>
       <div class="grid_row">
         <div id="largest_industries_v2"></div>
       </div>
     </div>
   </body>
   <script type="text/javascript">
-    //render_graph("pop_density", "./vega_lite/pop_density.vg.json");
-    //render_graph("annual_income", "./vega_lite/annual_income.vg.json");
-    //render_graph("annual_income_zoomed", "./vega_lite/annual_income_zoomed.vg.json");
-    // render_graph("income", "./vega_lite/income.vg.json");
-    render_graph("largest_industries_v2", "./vega_lite/largest_industries_v2.vg.json");
+    render_graph("pop_density", "./vega_lite/pop_density.vg.json");
+    // render_graph("annual_income", "./vega_lite/annual_income.vg.json");
+    // render_graph("annual_income_zoomed", "./vega_lite/annual_income_zoomed.vg.json");
+    // // render_graph("income", "./vega_lite/income.vg.json");
+    // render_graph(
+    //   "largest_industries_v2",
+    //   "./vega_lite/largest_industries_v2.vg.json"
+    // );
   </script>
 </html>

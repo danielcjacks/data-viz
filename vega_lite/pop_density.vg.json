@@ -1,7 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
-  "height": 800,
   "background": "none",
   "autosize": {
     "type": "fit-x",
@@ -29,24 +27,35 @@
       }
     },
     {
-      "calculate": "datum.OBS_VALUE / datum.properties.AREASQKM20",
+      "calculate": "datum.OBS_VALUE",
+      "as": "total_people"
+    },
+    {
+      "calculate": "datum.total_people / datum.properties.AREASQKM20",
       "as": "population_density"
     },
     {
       "filter": "datum.properties.LGA_CODE20 != '99399'"
+    },
+    {
+      "sort": [{"field": "population_density"}],
+      "window": [{"op": "sum", "field": "total_people", "as": "cumulative_people"}],
+      "frame": [null, 0]
     }
   ],
-  "layer": [
+  "vconcat": [
     {
+      "transform": [{
+        "filter": { "param": "selection"}
+      }],
+      "width": "container",
+      "height": 800,
       "projection": {
         "type": "identity",
         "reflectY": true
       },
       "mark": {
-        "type": "geoshape",
-        "tooltip": {
-          "content": "data"
-        }
+        "type": "geoshape"
       },
       "encoding": {
         "color": {
@@ -57,16 +66,72 @@
             "type": "symlog"
           },
           "legend": {
+            "title": "People per square km",
+            "orient": "bottom-right",
+            "gradientLength": 100,
+            "values": [
+              1,
+              100,
+              8000
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.LGA_NAME20",
+            "title": "Region"
+          },
+          {
+            "field": "population_density",
+            "format": ".1r",
             "title": "People per square km"
           }
-        }
+        ]
       }
+    },
+    {
+      "height": 100,
+      "width": "container",
+      "mark": {
+        "type": "area"
+      },
+      "encoding": {
+        "x": {
+          "field": "population_density",
+          "type": "quantitative",
+          "axis": {
+            "values": [1, 10, 100, 1000, 8000]
+          },
+          "scale": {
+            "type": "symlog"
+          }
+        },
+        "y": {
+          "field": "cumulative_people",
+          "type": "quantitative"
+        }
+      },
+      "params": [{
+        "name": "selection",
+        "select": {"type": "interval", "encodings": ["x"]}
+      }]
     }
   ],
   "config": {
     "legend": {
       "labelColor": "darkgrey",
       "titleColor": "dimgrey"
+    },
+    "axis": {
+      "gridColor": "dimgrey",
+      "labelColor": "darkgrey",
+      "titleColor": "dimgrey",
+      "grid": false,
+      "domainColor": "dimgrey",
+      "tickColor": "dimgrey"
+    },
+    "view": {
+      "stroke": "transparent"
     }
   }
 }

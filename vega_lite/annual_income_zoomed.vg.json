@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 800,
+  "height": 600,
   "background": "none",
   "autosize": {
     "type": "fit-x",
@@ -71,6 +71,19 @@
       "filter": "datum.properties.LGA_CODE20 != '99399'"
     }
   ],
+  "encoding": {
+    "tooltip": [{
+      "field": "properties.LGA_NAME20",
+      "title": "Region"
+    }, {
+      "field": "population_density",
+      "format": ".2r",
+      "title": "People per square km"
+    }, {
+      "field": "mean_annual_income",
+      "format": "$.2s"
+    }]
+  },
   "layer": [
     {
       "transform": [
@@ -182,12 +195,12 @@
     ],
     "clipExtent": [
       [
-        0,
-        0
+        20,
+        20
       ],
       [
         800,
-        800
+        500
       ]
     ]
   },
