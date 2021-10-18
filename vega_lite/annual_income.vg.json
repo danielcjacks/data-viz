@@ -284,7 +284,7 @@
         "text": ["Alice springs is much more populated", "than the surrounding regions.", "It also has a much higher average", "income than surrounding regions."],
         "opacity": 1,
         "color": "#cccccc",
-        "dy": -260
+        "dy": -310
       },
       "projection": {
         "type": "identity",
