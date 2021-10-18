@@ -8,6 +8,7 @@
     "resize": true,
     "contains": "content"
   },
+  "title": "Mean family income by region",
   "params": [{
     "name": "show_urban_regions",
     "bind": {
@@ -91,10 +92,7 @@
         "reflectY": true
       },
       "mark": {
-        "type": "geoshape",
-        "tooltip": {
-          "content": "data"
-        }
+        "type": "geoshape"
       },
       "encoding": {
         "color": {
@@ -108,10 +106,26 @@
           "legend": {
             "title": "Rural mean annual income",
             "direction": "horizontal",
-            "orient": "top-right",
+            "orient": "right",
+            "gradientLength": 150,
             "values": [37000, 230000]
           }
-        }
+        },
+        "tooltip": [
+          {
+            "field": "properties.LGA_NAME20",
+            "title": "Region"
+          },
+          {
+            "field": "population_density",
+            "format": ".2r",
+            "title": "People per square km"
+          },
+          {
+            "field": "mean_annual_income",
+            "format": "$.2s"
+          }
+        ]
       }
     },
     {
@@ -126,9 +140,6 @@
       },
       "mark": {
         "type": "geoshape",
-        "tooltip": {
-          "content": "data"
-        },
         "strokeWidth": 0
       },
       "encoding": {
@@ -143,10 +154,26 @@
           "legend": {
             "title": "Urban mean annual income",
             "direction": "horizontal",
-            "orient": "top-right",
+            "orient": "right",
+            "gradientLength": 150,
             "values": [37000, 230000]
           }
-        }
+        },
+        "tooltip": [
+          {
+            "field": "properties.LGA_NAME20",
+            "title": "Region"
+          },
+          {
+            "field": "population_density",
+            "format": ".2r",
+            "title": "People per square km"
+          },
+          {
+            "field": "mean_annual_income",
+            "format": "$.2s"
+          }
+        ]
       }
     },
     {
@@ -177,6 +204,102 @@
           "type": "quantitative"
         }
       }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.OBS_VALUE == 26534"
+        }, {
+          "calculate": "datum.centroid[1] + 6.8",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "opacity": 1,
+        "strokeWidth": 0.5,
+        "stroke": "white",
+        "fillOpacity": 0,
+        "width": 0,
+        "height": 200
+      },
+      "projection": {
+        "type": "identity",
+        "reflectY": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.OBS_VALUE == 158411"
+        }, {
+          "calculate": "datum.centroid[1]",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "text": "Sydney",
+        "opacity": 1,
+        "color": "#cccccc",
+        "dx": 70,
+        "dy": 0
+      },
+      "projection": {
+        "type": "identity",
+        "reflectY": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.properties.LGA_CODE20 == 70200"
+        }, {
+          "calculate": "datum.centroid[1]",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "text": ["Alice springs is much more populated", "than the surrounding regions.", "It also has a much higher average", "income than surrounding regions."],
+        "opacity": 1,
+        "color": "#cccccc",
+        "dy": -260
+      },
+      "projection": {
+        "type": "identity",
+        "reflectY": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "centroid[0]",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
     }
   ],
   "resolve": {
@@ -188,6 +311,12 @@
     "legend": {
       "labelColor": "darkgrey",
       "titleColor": "dimgrey"
+    },
+    "tick": {
+      "color": "#b3b3b3"
+    },
+    "title": {
+      "color": "#b3b3b3"
     }
   }
 }

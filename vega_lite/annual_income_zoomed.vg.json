@@ -3,6 +3,7 @@
   "width": "container",
   "height": 600,
   "background": "none",
+  "title": "Mean family income in Sydney",
   "autosize": {
     "type": "fit-x",
     "resize": true,
@@ -88,10 +89,6 @@
   "encoding": {
     "tooltip": [
       {
-        "field": "properties.LGA_CODE20",
-        "title": "LGA Code"
-      },
-      {
         "field": "properties.LGA_NAME20",
         "title": "Region"
       },
@@ -132,7 +129,8 @@
           "legend": {
             "title": "Rural mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-right",
+            "orient": "right",
+            "gradientLength": 150,
             "values": [37000, 230000]
           }
         }
@@ -163,7 +161,8 @@
           "legend": {
             "title": "Urban mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-right",
+            "orient": "right",
+            "gradientLength": 150,
             "values": [37000, 230000]
           }
         }
@@ -194,7 +193,7 @@
       "mark": {
         "type": "text",
         "opacity": 1,
-        "text": ["Woollahra has a", "mean family income", "of 200k.", "West Daly (a rural", "region) in NT has a", "mean family income", "of just 42k"],
+        "text": ["Woollahra has a", "mean family income", "of 200k.", "West Daly (a rural", "region in NT) has a", "mean family income", "of just 42k"],
         "color": "#cccccc",
         "dx": 90,
         "dy": -20,
@@ -277,6 +276,9 @@
     "legend": {
       "labelColor": "darkgrey",
       "titleColor": "dimgrey"
+    },
+    "title": {
+      "color": "#b3b3b3"
     }
   }
 }

@@ -106,7 +106,7 @@
           "legend": {
             "title": "Rural mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-right",
+            "orient": "right",
             "values": [37000, 230000]
           }
         }
@@ -141,7 +141,7 @@
           "legend": {
             "title": "Urban mean annual income",
             "direction": "horizontal",
-            "orient": "bottom-right",
+            "orient": "right",
             "values": [37000, 230000]
           }
         }

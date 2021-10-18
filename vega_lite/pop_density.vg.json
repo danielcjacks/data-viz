@@ -58,6 +58,7 @@
   ],
   "vconcat": [
     {
+      "title": "Population density by region",
       "transform": [
         {
           "filter": {
@@ -84,8 +85,9 @@
           },
           "legend": {
             "title": "People per square km",
-            "orient": "bottom-right",
-            "gradientLength": 100,
+            "orient": "right",
+            "direction": "horizontal",
+            "gradientLength": 150,
             "values": [
               1,
               100,
@@ -182,6 +184,10 @@
     },
     "view": {
       "stroke": "transparent"
+    },
+    "title": {
+      "color": "#b3b3b3",
+      "align": "center"
     }
   }
 }

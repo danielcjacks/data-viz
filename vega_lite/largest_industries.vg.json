@@ -1,0 +1,396 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "none",
+  "autosize": {
+    "type": "fit-x",
+    "resize": true,
+    "contains": "content"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_geo_max.csv"
+  },
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 500,
+      "title": "Regions categorized by largest industry",
+      "transform": [
+        {
+          "lookup": "lga_2016",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+              "format": {
+                "type": "topojson",
+                "feature": "LGA_2020_AUST"
+              }
+            },
+            "key": "properties.LGA_CODE20",
+            "fields": [
+              "properties"
+            ]
+          }
+        },
+        {
+          "lookup": "lga_2016",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/total_population.csv"
+            },
+            "key": "LGA_2018",
+            "fields": [
+              "OBS_VALUE"
+            ]
+          }
+        },
+        {
+          "lookup": "max_industry_type",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_global_stats.csv"
+            },
+            "key": "industry_type",
+            "fields": [
+              "industry_type",
+              "total_employment",
+              "total_wages"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.total_wages / datum.total_employment",
+          "as": "mean_wage"
+        },
+        {
+          "calculate": "datum.max_people / datum.total_people_for_lga",
+          "as": "industry_percentage"
+        },
+        {
+          "filter": "datum.properties"
+        },
+        {
+          "calculate": "datum.properties ? parseInt(datum.OBS_VALUE) / parseInt(datum.properties.AREASQKM20) : -1",
+          "as": "population_density"
+        },
+        {
+          "filter": "datum.max_industry_type != 'not described' && datum.max_industry_type != 'transport and warehousing'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "industry_type",
+          "type": "nominal",
+          "sort": [
+            "mining",
+            "utility services",
+            "scientific and technical services",
+            "construction",
+            "public administration",
+            "education",
+            "health care",
+            "retail",
+            "hospitality",
+            "agriculture"
+          ],
+          "axis": {
+            "grid": true,
+            "gridWidth": 0.5,
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelPadding": 7
+          }
+        }
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_global_stats.csv"
+          },
+          "transform": [
+            {
+              "calculate": "datum.total_wages / datum.total_employment",
+              "as": "mean_wage"
+            },
+            {
+              "filter": "indexof(['agriculture', 'construction', 'education', 'health care', 'hospitality', 'mining', 'public administration', 'retail', 'scientific and technical services', 'utility services'], datum.industry_type) != -1"
+            },
+            {
+              "calculate": "industry",
+              "as": "industry_param"
+            },
+            {
+              "filter": {
+                "param": "industry"
+              }
+            }, {
+              "calculate": "'$' + round(datum.mean_wage) + 'k' ",
+              "as": "mean_wage_expression"
+            }
+          ],
+          "mark": {
+            "type": "bar",
+            "color": "#364355"
+          },
+          "encoding": {
+            "x": {
+              "field": "mean_wage",
+              "type": "quantitative",
+              "axis": {
+                "orient": "top",
+                "title": "Mean salary (AUD)",
+                "titleColor": "#47576d",
+                "tickCount": 4,
+                "labelExpr": "'$' + datum.label + 'k' ",
+                "domain": false
+              }
+            },
+            "opacity": {
+              "field": "mean_wage",
+              "type": "quantitative",
+              "legend": {
+                "title": "Mean salary (AUD)",
+                "labelExpr": "'$' + datum.value + 'k'",
+                "tickCount": 3,
+                "padding": 10
+              }
+            },
+            "tooltip": [
+              {
+                "field": "industry_type",
+                "title": "Industry"
+              },
+              {
+                "field": "mean_wage_expression",
+                "title": "Mean annual family income"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "square",
+            "width": 100,
+            "strokeWidth": 100,
+            "tooltip": {
+              "content": "data"
+            },
+            "color": "#eb7e20"
+          },
+          "transform": [
+            {
+              "filter": {
+                "param": "industry"
+              }
+            }
+          ],
+          "encoding": {
+            "x": {
+              "field": "population_density",
+              "type": "quantitative",
+              "scale": {
+                "type": "log",
+                "domain": [
+                  0.0001,
+                  10000
+                ]
+              },
+              "axis": {
+                "orient": "bottom",
+                "title": "People per square km",
+                "titleColor": "#68503b",
+                "tickCount": 4
+              }
+            },
+            "opacity": {
+              "field": "industry_percentage",
+              "type": "quantitative",
+              "scale": {
+                "range": [
+                  0.1,
+                  1
+                ]
+              },
+              "legend": {
+                "title": [
+                  "Market share of the largest",
+                  "industry"
+                ],
+                "labelExpr": "datum.value * 100 + '%'",
+                "tickCount": 3,
+                "padding": 10
+              }
+            },
+            "tooltip": [{
+              "field": "properties.LGA_CODE20",
+              "title": "Region"
+            },{
+              "field": "properties.LGA_NAME20",
+              "title": "Region"
+            },{
+              "field": "max_industry_type",
+              "title": "Industry"
+            }, {
+              "field": "population_density",
+              "title": "People per square km",
+              "format": ".2r"
+            }]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": ["Agricultural jobs are the", "lowest paying but also the", " most common in rural areas."],
+            "opacity": 1,
+            "color": "#cccccc",
+            "dx": 180,
+            "dy": -36,
+            "tooltip": {
+              "content": "data"
+            }
+          },
+          "transform": [{
+            "filter": "datum.max_industry_type == 'agriculture' && datum.properties.LGA_CODE20 == 34580"
+          }]
+        }
+      ],
+      "resolve": {
+        "scale": {
+          "x": "independent",
+          "opacity": "independent"
+        },
+        "legend": {
+          "opacity": "independent"
+        }
+      }
+    },
+    {
+      "title": "Select industries",
+      "width": "container",
+      "height": 30,
+      "transform": [
+        {
+          "lookup": "lga_2016",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
+              "format": {
+                "type": "topojson",
+                "feature": "LGA_2020_AUST"
+              }
+            },
+            "key": "properties.LGA_CODE20",
+            "fields": [
+              "properties"
+            ]
+          }
+        },
+        {
+          "lookup": "lga_2016",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/total_population.csv"
+            },
+            "key": "LGA_2018",
+            "fields": [
+              "OBS_VALUE"
+            ]
+          }
+        },
+        {
+          "lookup": "max_industry_type",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/industry_global_stats.csv"
+            },
+            "key": "industry_type",
+            "fields": [
+              "industry_type",
+              "total_employment",
+              "total_wages"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.total_wages / datum.total_employment",
+          "as": "mean_wage"
+        },
+        {
+          "calculate": "datum.max_people / datum.total_people_for_lga",
+          "as": "industry_percentage"
+        },
+        {
+          "filter": "datum.properties"
+        },
+        {
+          "calculate": "datum.properties ? parseInt(datum.OBS_VALUE) / parseInt(datum.properties.AREASQKM20) : -1",
+          "as": "population_density"
+        },
+        {
+          "filter": "datum.max_industry_type != 'not described' && datum.max_industry_type != 'transport and warehousing'"
+        }
+      ],
+      "params": [
+        {
+          "name": "industry",
+          "select": {
+            "type": "point",
+            "fields": [
+              "industry_type"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "color": "#364355"
+      },
+      "encoding": {
+        "x": {
+          "field": "max_industry_type",
+          "sort": [
+            "agriculture",
+            "hospitality",
+            "retail",
+            "health care",
+            "education",
+            "public administration",
+            "construction",
+            "scientific and technical services",
+            "utility services",
+            "mining"
+          ],
+          "axis": {
+            "title": null
+          }
+        },
+        "color": {
+          "condition": {
+            "param": "industry"
+          },
+          "value": "#1e1e1e"
+        }
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "labelColor": "darkgrey",
+      "titleColor": "dimgrey"
+    },
+    "axis": {
+      "gridColor": "dimgrey",
+      "labelColor": "darkgrey",
+      "titleColor": "dimgrey",
+      "grid": false,
+      "domainColor": "dimgrey",
+      "tickColor": "dimgrey"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "title": {
+      "color": "#b3b3b3"
+    }
+  }
+}

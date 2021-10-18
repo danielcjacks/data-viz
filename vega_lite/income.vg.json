@@ -1,8 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": "container",
   "height": 500,
   "background": "none",
+  "autosize": {
+    "type": "fit-x",
+    "resize": true,
+    "contains": "content"
+  },
+  "title": "Income vs population density",
   "data": {
     "url": "https://raw.githubusercontent.com/danielcjacks/data-viz/master/datasets/LGA_2020_AUST.json",
     "format": {
@@ -135,13 +141,14 @@
               0.8
             ],
             "type": "log"
+          },
+          "legend": {
+            "orient": "right",
+            "title": "Total population                       :",
+            "values": [100, 10000, 1000000]
           }
         },
         "tooltip": [
-          {
-            "field": "properties.LGA_CODE20",
-            "title": "LGA Code"
-          },
           {
             "field": "properties.LGA_NAME20",
             "title": "Region"
@@ -236,6 +243,9 @@
     },
     "view": {
       "stroke": "transparent"
+    },
+    "title": {
+      "color": "#b3b3b3"
     }
   }
 }

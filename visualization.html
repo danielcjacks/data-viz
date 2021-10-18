@@ -21,12 +21,22 @@
     />
   </head>
   <body>
-    <h1>Income in Australia</h1>
+    <h1>Income disparity in Australia</h1>
+    <table class='stats-table'>
+      <tr>
+        <td>Australia's <em>GDP</em> is the <strong>13</strong><sup>th</sup> <em>highest</em> out of <strong>190</strong> countries</td>
+        <td>The <em>top</em> <strong>20%</strong> of Australians have <strong>90</strong> <em>times</em> more wealth than the <em>bottom</em> <strong>20%</strong></td>
+        <td><em>Low income</em> can have impacts on outcomes such as <em>health</em>, <em>education</em> and <em>quality of life</em></td>
+      </tr>
+    </table>
+    <div style="padding-bottom: 200px"></div>
     <div class="main_grid">
       <div class="grid_row">
         <div></div>
         <div class="body-text">
           <div>
+            <h2>Regional population</h2>
+            <br />
             <p>
               Australia's <em>population</em> is
               <em>not evenly distributed</em>.
@@ -51,15 +61,17 @@
             </p>
           </div>
         </div>
+        <div></div>
         <div id="pop_density"></div>
         <div></div>
       </div>
-
-      <div>
+      <div style="padding-top: 350px">
         <div class="grid_row">
           <div></div>
           <div class="body-text">
             <div>
+              <h2>Regional income</h2>
+              <br />
               <p>
                 <em>Urban</em> regions are defined by the
                 <em>European Commission</em> as settlements with:
@@ -74,10 +86,11 @@
                 <i class="fas fa-hand-pointer click-icon"></i> Use the controls
                 below to highlight urban regions.
               </p>
-              <div id="show-urban-overview"></div>
-              <div id="show-urban-zoomed"></div>
+              <div id="show-urban-overview" style="padding-left: 25px"></div>
+              <div id="show-urban-zoomed" style="padding-left: 25px"></div>
             </div>
           </div>
+          <div></div>
           <div id="annual_income"></div>
           <div></div>
         </div>
@@ -96,31 +109,88 @@
               <em>national</em> average.
             </p>
           </div>
+          <div></div>
           <div id="annual_income_zoomed"></div>
           <div></div>
         </div>
       </div>
-      <div class="grid_row">
+      <div class="grid_row" style="padding-top: 200px">
         <div></div>
         <div class="body-text">
           <div>
+            <h2>Income distribution</h2>
+            <br />
             <p>
-              The income vs population density chart on the right
-              highlights some important features:
+              The income vs population density chart on the right highlights
+              some important features:
             </p>
             <ul>
-              <li>Most <em>rural</em> regions have a <em>similar</em> average income</li>
-              <li>There is a <em>sharp increase</em> in income in <em>urban</em> regions</li>
-              <li><em>Rural</em> regions are in a <em>wider band</em> since their <em>low population</em> totals cause <em>increased statistical uncertainty</em></li>
+              <li>
+                Most <em>rural</em> regions have a <em>similar</em> average
+                income
+              </li>
+              <li>
+                There is a <em>sharp increase</em> in income in
+                <em>urban</em> regions
+              </li>
+              <li>
+                <em>Rural</em> regions are in a <em>wider band</em> since their
+                <em>low population</em> totals cause
+                <em>increased statistical uncertainty</em>
+              </li>
             </ul>
           </div>
         </div>
+        <div></div>
         <div id="income"></div>
         <div></div>
       </div>
-      <div class="grid_row"></div>
-      <div class="grid_row">
-        <div id="largest_industries_v2"></div>
+      <div class="grid_row" style="padding-top: 320px">
+        <div></div>
+        <div class="body-text">
+          <div>
+            <h2>Industry distribution</h2>
+            <br />
+            <p>
+              Looking at the largest industry in each region can help understand
+              the income disparity:
+            </p>
+            <ul>
+              <li>
+                <em>Higher paying jobs</em> such as utility services or
+                scientific and technical services are <em>more common</em> in
+                <em>more populated</em> regions
+              </li>
+              <li>
+                <em>Rural</em> areas have alot of <em>agriculture</em> jobs,
+                which are the <em>worst paying</em> jobs
+              </li>
+              <li>
+                <em>Rural</em> jobs are more <emm>volatile</emm>, for example:
+                <ul>
+                  <li>
+                    <em>Agriculture</em> is dependent on the <em>season</em>
+                  </li>
+                  <li>
+                    <em>Mining</em> is dependent on the demand from
+                    <em>international markets</em>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <i class="fas fa-hand-pointer click-icon"></i> Use the lower graph to filter by industry:
+            </p>
+            <div style="padding-left: 50px">Click to select</div>
+            <div style="padding-left: 50px">Shift + click to select multiple</div>
+            <div style="padding-left: 50px">Double click to select all</div>
+          </div>
+        </div>
+        <div></div>
+        <div id="largest_industries"></div>
+        <div></div>
       </div>
     </div>
   </body>
@@ -132,9 +202,9 @@
       "./vega_lite/annual_income_zoomed.vg.json"
     );
     render_graph("income", "./vega_lite/income.vg.json");
-    // render_graph(
-    //   "largest_industries_v2",
-    //   "./vega_lite/largest_industries_v2.vg.json"
-    // );
+    render_graph(
+      "largest_industries",
+      "./vega_lite/largest_industries.vg.json"
+    );
   </script>
 </html>
