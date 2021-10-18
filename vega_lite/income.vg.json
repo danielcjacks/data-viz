@@ -110,7 +110,8 @@
         "type": "point",
         "tooltip": {
           "content": "data"
-        }
+        },
+        "color": "#006fca"
       },
       "encoding": {
         "x": {

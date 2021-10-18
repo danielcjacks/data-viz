@@ -92,7 +92,8 @@
         "reflectY": true
       },
       "mark": {
-        "type": "geoshape"
+        "type": "geoshape",
+        "opacity": 0.7
       },
       "encoding": {
         "color": {
@@ -140,7 +141,8 @@
       },
       "mark": {
         "type": "geoshape",
-        "strokeWidth": 0
+        "strokeWidth": 0,
+        "opacity": 0.7
       },
       "encoding": {
         "color": {

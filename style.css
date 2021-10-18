@@ -105,3 +105,10 @@ table.stats-table td {
 table.stats-table td:last-child {
   border-right: none;
 }
+
+.copyright {
+    padding-top: 100px;
+    color: #898989;
+    font-size: 8pt;
+    text-align: end;
+}

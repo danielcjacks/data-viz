@@ -115,7 +115,8 @@
         "tooltip": {
           "content": "data"
         },
-        "strokeWidth": 0
+        "strokeWidth": 0,
+        "opacity": 0.7
       },
       "encoding": {
         "color": {
@@ -147,7 +148,8 @@
         "tooltip": {
           "content": "data"
         },
-        "strokeWidth": 0
+        "strokeWidth": 0,
+        "opacity": 0.7
       },
       "encoding": {
         "color": {
